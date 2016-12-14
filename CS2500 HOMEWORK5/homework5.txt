@@ -1,0 +1,272 @@
+
+3.3.19
+One bit per node.
+3.4.1
+Hash(E)=Hash(5)=55 mod 5 = 0;
+Hash(A)=Hash(1)=11 mod 5 = 1;
+Hash(S)=Hash(19)=209 mod 5 = 4;
+Hash(Y)=Hash(25)=275 mod 5 = 0;
+Hash(Q)=Hash(17)=187 mod 5 = 2;
+Hash(U)=Hash(21)= mod 5 = 1;
+Hash(T)=Hash(20)= mod 5 = 0;
+Hash(I)=Hash(9)= mod 5 = 4;
+Hash(O)=Hash(15)= mod 5 = 0;
+Hash(N)=Hash(14)=55 mod 5 = 4;
+
+3.4.22
+(a)Implementation for 2D point:
+public class Point 
+{
+    private final int x, y;
+
+    public Point(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() 
+    {
+        return x;
+    }
+
+    public int getY()
+    {
+        return y;
+    }
+
+    @Override
+    public boolean equals(Object other) 
+    {
+        if (this == other)
+          return true;
+
+        if (!(other instanceof Point))
+          return false;
+
+        Point otherPoint = (Point) other;
+        return otherPoint.x == x && otherPoint.y == y;
+    }
+    public int hashCode() {
+        int hash = 7;
+        hash = 71 * hash + this.x;
+        hash = 71 * hash + this.y;
+        return hash;
+ }
+}
+
+
+
+
+(b)Implementation for Interval2D
+public Interval2D{
+
+           private int x1;
+           private int y1;
+           private int x2;
+           private int y2;
+
+           
+public Interval2D(int x1, int x2, int y1, int y2)
+{        
+          this.x1 = x1;
+          this.x2 = x2;
+          this.y1 = y1;
+          this.y2 = y2;
+   }
+         public int getX1()
+   {           return x1;
+   }
+
+        public int getX2()
+   {           return x2;
+   }
+  public int getY1()
+   {          return y1;
+  }
+  public int getY2()
+  {          return Y2;
+  }
+
+public boolean equals(Object other) 
+    {
+        if (this == other)
+          return true;
+
+        if (!(other instanceof Interval2D))
+          return false;
+
+        Interval2D otherInterval2D = (Interval2D) other;
+        return otherInterval2D.x1 == x1 && otherInterval2D.y1 == y1&& otherInterval2D.x2 == x2&& otherInterval2D.y2 == y2;
+    }
+public int hashCode() {
+    int hash = 7;
+    hash = 71 * hash + this.x1;
+    hash = 71 * hash + this.x2;
+    hash = 71 * hash + this.y1;
+    hash = 71 * hash + this.y2;
+    return hash;
+}
+
+}
+
+
+
+(c)Implementation for Interval:
+public class Interval {
+    private int upper;
+    private int lower;
+
+    public Interval(int upper, int lower) {
+        this.upper = upper;
+        this.lower = lower;
+    }
+
+    public boolean contains(int i) {
+        return i < upper && i >= lower;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Interval other = (Interval) obj;
+        if (this.upper != other.upper) {
+            return false;
+        }
+        if (this.lower != other.lower) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 61 * hash + this.upper;
+        hash = 61 * hash + this.lower;
+        return hash;
+    }
+}
+
+
+
+
+
+(d)Implementation for Date:
+
+class Date {
+	private int year;
+	private int month;
+	private int day;
+	
+	public Date(int year, int month, int day) {
+		this.year = year;
+		this.month = month;
+		this.day = day;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public int getMonth() {
+		return month;
+	}
+
+	public int getDay() {
+		return day;
+	}
+
+	@Override
+	public String toString() {
+		return "Date [year=" + year + ", month=" + month + ", day=" + day + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + day;
+		result = prime * result + month;
+		result = prime * result + year;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Date other = (Date) obj;
+		if (day != other.day)
+			return false;
+		if (month != other.month)
+			return false;
+		if (year != other.year)
+			return false;
+		return true;
+	}
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
